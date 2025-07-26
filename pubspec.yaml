@@ -28,7 +28,7 @@ flutter:
     - assets/audio/
     - assets/fonts/
   
-  fonts:
-    - family: GameFont
-      fonts:
-        - asset: assets/fonts/game_font.ttf 
+  # fonts:
+  #   - family: GameFont
+  #     fonts:
+  #       - asset: assets/fonts/game_font.ttf 

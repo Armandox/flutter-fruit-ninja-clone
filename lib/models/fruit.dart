@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:vector_math/vector_math.dart';
+import 'package:vector_math/vector_math.dart' as vector_math;
 
 enum FruitType {
   apple,
@@ -14,9 +14,9 @@ enum FruitType {
 
 class Fruit {
   final FruitType type;
-  Vector2 position;
-  Vector2 velocity;
-  Vector2 acceleration;
+  vector_math.Vector2 position;
+  vector_math.Vector2 velocity;
+  vector_math.Vector2 acceleration;
   double rotation;
   double rotationSpeed;
   double scale;
@@ -30,7 +30,7 @@ class Fruit {
     required this.type,
     required this.position,
     required this.velocity,
-    this.acceleration = const Vector2(0, 0),
+    this.acceleration = const vector_math.Vector2(0, 0),
     this.rotation = 0,
     this.rotationSpeed = 0,
     this.scale = 1.0,
