@@ -1,20 +1,41 @@
 import 'package:flutter/material.dart';
-import 'initial_screen.dart';
+import 'package:flutter/services.dart';
+import 'screens/game_screen.dart';
+import 'screens/menu_screen.dart';
 
 void main() {
-  runApp(InitialScreen());
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Imposta l'orientamento del dispositivo a landscape
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]);
+  
+  // Nasconde la barra di stato
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+  
+  runApp(const FruitNinjaApp());
 }
 
-class MyApp extends StatelessWidget {
+class FruitNinjaApp extends StatelessWidget {
+  const FruitNinjaApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Fruit Ninja clone',
+      title: 'Fruit Ninja Clone',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
+        fontFamily: 'GameFont',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: InitialScreen(),
+      home: const MenuScreen(),
+      routes: {
+        '/menu': (context) => const MenuScreen(),
+        '/game': (context) => const GameScreen(),
+      },
     );
   }
-}
+} 
